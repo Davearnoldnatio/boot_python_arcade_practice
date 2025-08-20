@@ -5,9 +5,11 @@ from constants import PLAYER_RADIUS, PLAYER_TURN_SPEED, PLAYER_SPEED
 
 class Player(CircleShape):
     rotation = 0
+    containers = ()
 
     def __init__(self, x, y, radius=PLAYER_RADIUS):
         super().__init__(x, y, radius)
+        self.add(*self.containers)
     
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
